@@ -32,7 +32,7 @@ const FormPembelian = () => {
       tanggalMasuk: Timestamp.fromDate(new Date(form.tanggalMasuk)),
       batchId: Date.now().toString(),
     });
-    alert("Pembelian berhasil disimpan!");
+    console.log("berhasil menyimpan barang")
     setForm({
       namaBarang: "",
       jumlah: "",
@@ -42,17 +42,36 @@ const FormPembelian = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <select name="namaBarang" value={form.namaBarang} onChange={handleChange} required>
-        <option value="">-- Pilih Barang --</option>
+    <form onSubmit={handleSubmit} className=" border-black/10 border-1 flex flex-col px-5 py-5 gap-2 shadow-xl rounded-lg ">
+      <h1 className="font-bold text-3xl">Tambah Stock Barang</h1>
+      <div className="flex flex-col mt-1">
+
+      <span className="" >Pilih Barang</span >
+      <select name="namaBarang"  className="px-2 py-2 outline-2 rounded-lg" value={form.namaBarang} onChange={handleChange} required>
+        <option value="">Pilih Barang</option>
         {items.map((item, i) => (
           <option key={i} value={item}>{item}</option>
         ))}
       </select>
-      <input type="number" name="jumlah" placeholder="Jumlah" value={form.jumlah} onChange={handleChange} required />
-      <input type="number" name="hargaBeli" placeholder="Harga Beli" value={form.hargaBeli} onChange={handleChange} required />
-      <input type="date" name="tanggalMasuk" value={form.tanggalMasuk} onChange={handleChange} required />
-      <button type="submit">Simpan Pembelian</button>
+        </div>
+      <div className="flex flex-col mt-1">
+
+      <span>Jumlah Beli</span>
+      <input type="number" name="jumlah" className="px-2 py-2 outline-2 rounded-lg" placeholder="Jumlah" value={form.jumlah} onChange={handleChange} required />
+      </div>
+      <div className="flex flex-col mt-1">
+        <span>Harga Beli</span>
+      <input type="number" name="hargaBeli"  className="px-2 py-2 outline-2 rounded-lg" placeholder="Harga Beli" value={form.hargaBeli} onChange={handleChange} required />
+      </div>
+      <div className="flex flex-col mt-1">
+
+      <span>Tanggal Beli</span>
+      <input type="date" name="tanggalMasuk"  className="px-2 py-2 outline-2 rounded-lg" value={form.tanggalMasuk} onChange={handleChange} required />
+      </div>
+      <div className="flex justify-center items-center mt-2 font-semibold">
+
+      <button type="submit" className="bg-black text-white px-3 py-1">Simpan Pembelian</button>
+      </div>
     </form>
   );
 };
