@@ -77,16 +77,29 @@ const FormPenjualan = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <select name="namaBarang" value={form.namaBarang} onChange={handleChange} required>
-        <option value="">-- Pilih Barang --</option>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-2 border-black/20 border-1 px-5 py-3 shadow-lg rounded-md text-md ">
+      <h1 className=" font-bold text-3xl">Jual Barang</h1>
+      <div className="flex flex-col">
+        <span>Pilih Nama Barang</span>
+      <select name="namaBarang"  className="border-2 border-black px-2 py-1 rounded-md" value={form.namaBarang} onChange={handleChange} required>
+        <option value="">Pilih Barang</option>
         {items.map((item, i) => (
           <option key={i} value={item}>{item}</option>
         ))}
       </select>
-      <input type="number" name="jumlahJual" placeholder="Jumlah Terjual" value={form.jumlahJual} onChange={handleChange} required />
-      <input type="number" name="hargaJual" placeholder="Harga Jual" value={form.hargaJual} onChange={handleChange} required />
-      <button type="submit">Jual</button>
+        </div>
+        <div className="flex flex-col">
+          <span>Jumlah Jual</span>
+      <input type="number" name="jumlahJual" className="border-2 border-black px-2 py-1 rounded-md" placeholder="Jumlah Terjual" value={form.jumlahJual} onChange={handleChange} required />
+        </div>
+        <div className="flex flex-col">
+<span>Harga jual</span>
+      <input type="number" name="hargaJual"  className="border-2 border-black px-2 py-1 rounded-md" placeholder="Harga Jual" value={form.hargaJual} onChange={handleChange} required />
+        </div>
+        <div className="flex justify-center items-center">
+
+      <button type="submit" className="bg-black text-white px-5 py-1 font-semibold mt-3">Jual</button>
+        </div>
     </form>
   );
 };

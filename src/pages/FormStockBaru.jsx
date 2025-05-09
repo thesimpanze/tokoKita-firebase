@@ -11,8 +11,7 @@ return(
             </Link>
         </div>
     <div className="flex justify-center items-center h-screen">
-        <FormPembuatan/>
-        <FormPembelian />
+        <FormPembelian/>
     </div>
     </div>
 )
